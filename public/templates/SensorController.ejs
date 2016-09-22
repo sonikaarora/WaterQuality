@@ -1,0 +1,106 @@
+
+ 
+ <div id="sensordiv" ng-controller="SensorController">
+<div class="container">
+<div class="col-md-6">
+<table class="table table-striped">
+           <thead>
+			<tr>
+				<th>Sensor Name
+				</th>
+				<th>Hub Name
+				</th>
+				<th>Location
+				</th>
+				<th>Sensor Type
+				</th>
+				<th>Delete</th>
+			</tr>
+			 </thead>
+			<tr ng-repeat="data in sensorList">
+				<td>{{data.sensorname}}
+				</td>
+				<td>{{data.hub}}
+				</td>
+				<td>{{data.location}}
+				</td>
+				<td>{{data.sensortype}}
+				</td>
+				<td><button type="button" class="btn btn-danger" ng-click="deleteSensor($index,data)">Unsubscribe</button></td>
+			</tr>
+</table>
+
+</div>
+
+<div class="col-md-6"> 
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend align="center">Add Sensor</legend>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Sensor type</label>  
+  <div class="col-md-4">
+  <select ng-model="sensor.type"  ng-change="populateLocations()">
+   <option value="Salinity">Salinity</option>
+   <option value="Density">Density</option>
+   <option value="Temperature">Temperature</option>
+   <option value="Conductivity">Conductivity</option>
+  </select>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Location</label>
+  <div class="col-md-4">
+  <select ng-model="sensor.location" ng-change="populateHubs()" ng-init="locationStatus = true" ng-disabled="locationStatus">
+    <option ng-repeat="location in locationData"
+            value="{{location}}">
+      {{location}}
+    </option>
+  </select>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Hub</label>  
+  <div class="col-md-4">
+  <select ng-model="sensor.hub" ng-init="hubstatus = true" ng-disabled="hubstatus">
+    <option ng-repeat="hub in hubsList"
+            value="{{hub}}">
+      {{hub}}
+    </option>
+  </select>  
+  </div>
+</div>
+
+
+<!-- Button -->
+<div class="">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary" ng-click="addSensor()">Submit</button>
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+</form>
+<div>
+
+
+
+
+</div>   
+
+ 
+<div> 
+
+
+
+

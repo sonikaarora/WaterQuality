@@ -1,0 +1,34 @@
+<div id="sensordiv" ng-controller="BillingController">
+
+<div class="col-md-6">
+<table class="table table-striped">
+           <thead>
+			<tr>
+				<th>Sensor Name
+				</th>
+				<th>Sensor Type
+				</th>
+				<th>Location
+				</th>
+				<th>Usage
+				</th>
+				<th>Cost</th>
+				<th>Send Reminders</th>
+			</tr>
+			 </thead>
+			<tr ng-repeat="data in sensors">
+				<td>{{data.sensorname}}
+				</td>
+				<td>{{data.sensortype}}
+				</td>
+				<td>{{data.location}}
+				</td>
+				<td>{{data.usage}}
+				</td>
+				<td>{{data.usage*data.amount}}
+				</td>
+				<td><button type="button" class="btn btn-warning" ng-click="sendReminder($index,data)">Send Reminder</button></td>
+			</tr>
+</table>
+
+</div>

@@ -1,0 +1,199 @@
+<div id="sensordiv" ng-controller="adminSensorCtrl">
+<div class="container">
+<div class="col-md-6">
+<table class="table table-striped">
+           <thead>
+			<tr>
+				<th>Sensor Name
+				</th>
+				<th>Hub Name
+				</th>
+				<th>Location
+				</th>
+				<th>Sensor Type
+				</th>
+				<th>Delete</th>
+			</tr>
+			</thead>
+			<tr ng-repeat="data in sensorList">
+				<td>{{data.sensorname}}
+				</td>
+				<td>{{data.hub}}
+				</td>
+				<td>{{data.location}}
+				</td>
+				<td>{{data.sensortype}}
+				</td>
+				<td><button type="button" class="btn btn-danger" ng-click="deleteSensor($index,data)">Delete</button></td>
+			</tr>
+</table>
+</div>
+
+<div class="col-md-6"> 
+
+<form class="form-horizontal" ng-submit="addSensor()">
+
+
+<!-- Form Name -->
+
+<legend align="center">Add Sensor</legend>
+
+
+
+<!-- Text input-->
+
+<div class="form-group">
+
+  <label class="col-md-4 control-label">Sensor Name</label>  
+
+  <div class="col-md-4">
+
+  <input id="textinput" name="textinput" type="text" placeholder="Sensor Name" ng-model="sensor.name" class="form-control input-md" required="">
+
+    
+
+  </div>
+
+</div>
+
+
+
+<!-- Text input-->
+
+<div class="form-group">
+
+  <label class="col-md-4 control-label" for="textinput">Description</label>  
+
+  <div class="col-md-4">
+
+  <input id="textinput" name="textinput" type="text" placeholder="Describe about sensor" ng-model="sensor.description"  class="form-control input-md">
+
+    
+
+  </div>
+
+</div>
+
+
+
+<!-- Text input-->
+
+<div class="form-group">
+
+  <label class="col-md-4 control-label" for="textinput">Sensor type</label>  
+
+  <div class="col-md-4">
+
+  <input id="textinput" name="textinput" type="text" placeholder="Sensor Type" ng-model="sensor.type" class="form-control input-md">
+
+    
+
+  </div>
+
+</div>
+
+
+
+<!-- Text input-->
+
+<div class="form-group">
+
+  <label class="col-md-4 control-label" for="textinput">Location</label>
+
+  <div class="col-md-4">
+
+  <select ng-model="sensor.location" ng-change="populateHubs()">
+
+    <option ng-selected="{{hub.location == sensor.location}}"
+
+            ng-repeat="hub in hubsData"
+
+            value="{{hub.location}}">
+
+      {{hub.location}}
+
+    </option>
+
+  </select>  
+
+  </div>
+
+</div>
+
+
+
+<!-- Text input-->
+
+<div class="form-group">
+
+  <label class="col-md-4 control-label" for="textinput">Hub</label>  
+
+  <div class="col-md-4">
+
+  <select ng-model="sensor.hub">
+
+    <option ng-selected="{{hub == sensor.hub}}"
+
+            ng-repeat="hub in hubsList"
+
+            value="{{hub}}">
+
+      {{hub}}
+
+    </option>
+
+  </select>  
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- Text input-->
+
+<div class="form-group">
+
+  <label class="col-md-4 control-label" for="textinput">Sensor Manufature</label>  
+
+  <div class="col-md-4">
+
+  <input id="textinput" name="textinput" type="text" placeholder="Manufature Name" ng-model="sensor.manufature" class="form-control input-md">
+
+    
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Button -->
+
+<div class="">
+
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+
+  <div class="">
+
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Cancel</button>
+
+  </div>
+
+</div>
+
+
+</form>
+</div>
+  
+</div>

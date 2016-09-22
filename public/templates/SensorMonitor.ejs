@@ -1,0 +1,31 @@
+<div id="sensordiv" ng-controller="UserSensorMonitor">
+
+<div class="col-md-6">
+<table class="table table-striped">
+           <thead>
+			<tr>
+				<th>Sensor Name
+				</th>
+				<th>Hub Name
+				</th>
+				<th>Location
+				</th>
+				<th>Sensor Type
+				</th>
+				<th>Status
+				</th>
+			</tr>
+			 </thead>
+			<tr ng-repeat="data in sensors">
+				<td>{{data.sensorname}}
+				</td>
+				<td>{{data.hub}}
+				</td>
+				<td>{{data.location}}
+				</td>
+				<td>{{data.sensortype}}
+				</td>
+				<td><a class="btn md" ng-model=data.status ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[data.status]" ng-click="status.active = !status.active; changeStatus($index)">{{data.status && 'Active' || 'Inactive'}} status</a></td>
+			</tr>
+</table>
+</div>

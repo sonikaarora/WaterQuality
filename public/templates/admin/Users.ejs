@@ -1,0 +1,35 @@
+<div ng-controller="UserController">
+<div class="container">
+<h2>Users Profile</h2>
+<table class="table table-striped">
+           <thead>
+			<tr>
+				<th>User Name
+				</th>
+				<th>First Name
+				</th>
+				<th>Last Name
+				</th>
+				<th>Phone No
+				</th>
+				<th>Plan
+				</th>
+				<th></th>
+			</tr>
+			 </thead>
+			<tr ng-repeat="data in userprofile">
+				<td>{{data.emailaddress}}
+				</td>
+				<td>{{data.firstname}}
+				</td>
+				<td>{{data.lastname}}
+				</td>
+				<td>{{data.phone}}
+				</td>
+				<td>{{data.plan}}
+				</td>
+				<td><button type="button" class="btn btn-danger" ng-click="deleteUser($index,data)">Delete</button></td>
+			</tr>
+</table>
+</div>
+</div>

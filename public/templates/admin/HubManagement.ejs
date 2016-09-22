@@ -1,0 +1,54 @@
+<div id="sensordiv" ng-controller="hubManagementCtrl">
+<div class="container" style="margin-top: 5%;">
+
+  <label class="col-md-2 control-label">Select Location</label>  
+  <div class="col-md-2">
+   <select ng-model="locationName" ng-change="populateHubs()" ng-selected="{{hub.value == locationName}}">
+  
+    <option ng-repeat="data in hubsData"
+            value="{{data.location}}">
+     {{data.location}}
+    </option>
+  </select>  
+  </div>
+  
+  <label class="col-md-2 control-label">Select Hub</label>  
+  <div class="col-md-2">
+  <select ng-model="hubName" ng-init="hubName = '- Please Choose -'" ng-change="showSensors()">
+   <option value="- Please Choose -" ng-selected="selected">- Please Choose -</option>
+    <option ng-repeat="data in hubsList"
+            value="{{data}}">
+    {{data}}
+    </option>
+  </select>  
+  </div>
+  
+  <div>
+  <table class="table table-striped">
+           <thead>
+			<tr>
+				<th>Sensor Name
+				</th>
+				<th>Sensor Description
+				</th>
+				<th>Sensor Type
+				</th>
+				<th>Sensor Status
+				</th>
+			</tr>
+			 </thead>
+			<tr ng-repeat="data in sensorinfo">
+				<td>{{data.sensorname}}
+				</td>
+				<td>{{data.sensordescription}}
+				</td>
+				<td>{{data.sensortype}}
+				</td>
+				<td><a class="btn md" ng-model=data.status ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[data.status]" ng-click="status.active = !status.active; changeStatus($index)">{{data.status && 'Active' || 'Inactive'}} status</a></td>
+			</tr>
+</table>
+  </div>
+  
+</div>
+
+</div>

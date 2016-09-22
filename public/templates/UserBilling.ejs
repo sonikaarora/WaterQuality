@@ -1,0 +1,31 @@
+<div ng-controller="UserBillingController">
+<div class="container">
+<h2>Users Profile</h2>
+<table class="table table-striped">
+           <thead>
+			<tr>
+				<th>Sensor Name
+				</th>
+				<th>Sensor Type
+				</th>
+				<th>Location
+				</th>
+				<th>Cost
+				</th>
+				<th></th>
+			</tr>
+			 </thead>
+			<tr ng-repeat="data in sensors">
+				<td>{{data.sensorname}}
+				</td>
+				<td>{{data.sensortype}}
+				</td>
+				<td>{{data.location}}
+				</td>
+				<td>{{data.usage*data.amount}}
+				
+				<td><button type="button" class="btn btn-primary" ng-click="payBill($index,data)">Pay Bill</button></td>
+			</tr>
+</table>
+</div>
+</div>

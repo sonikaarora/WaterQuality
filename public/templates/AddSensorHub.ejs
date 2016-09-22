@@ -1,0 +1,128 @@
+<html>
+<head>
+
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <script>
+    $('.btn-toggle').click(function() {
+        $(this).find('.btn').toggleClass('active');  
+        
+        if ($(this).find('.btn-primary').size()>0) {
+        	$(this).find('.btn').toggleClass('btn-primary');
+        }
+        if ($(this).find('.btn-danger').size()>0) {
+        	$(this).find('.btn').toggleClass('btn-danger');
+        }
+        if ($(this).find('.btn-success').size()>0) {
+        	$(this).find('.btn').toggleClass('btn-success');
+        }
+        if ($(this).find('.btn-info').size()>0) {
+        	$(this).find('.btn').toggleClass('btn-info');
+        }
+        
+        $(this).find('.btn').toggleClass('btn-default');
+           
+    });
+
+    $('form').submit(function(){
+    	alert($(this["options"]).val());
+        return false;
+    });
+    </script>
+</head>
+<body>
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend align="center">    Add Sensor Hub</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Sensor Hub Name</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="Sensor Name" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Description</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="Describe About sensor hub" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Sensor Hub type</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="Sensor Type" class="form-control input-md">
+    
+  </div>
+</div>
+
+ <div class="form-group">
+ <label class="col-md-4 control-label" for="textinput">Sensor Hub Status</label>  
+  <div class="col-md-4">
+  <!-- <input type="checkbox" checked data-toggle="toggle" data-onstyle="success"> -->
+  <div class="btn-group btn-toggle"> 
+    <button class="btn btn-default">ON</button>
+    <button class="btn btn-primary active">OFF</button>
+  </div>
+ </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Sensor Hub Manufature</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="Manufature Name" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">State</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="State" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">City</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="City" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Category</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="Group Name" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Cancel</button>
+    
+  </div>
+</div>
+
+</fieldset>
+</form>
+</body>
+</html>
